@@ -1,0 +1,8 @@
+C:\Immi\Personal\MyProjects\you-dl\Immanuel.Ydl\Immanuel.Yl\Test.Cons\bin\Debug\Test.Cons.exe.config
+C:\Immi\Personal\MyProjects\you-dl\Immanuel.Ydl\Immanuel.Yl\Test.Cons\bin\Debug\Test.Cons.exe
+C:\Immi\Personal\MyProjects\you-dl\Immanuel.Ydl\Immanuel.Yl\Test.Cons\bin\Debug\Test.Cons.pdb
+C:\Immi\Personal\MyProjects\you-dl\Immanuel.Ydl\Immanuel.Yl\Test.Cons\bin\Debug\MediaToolkit.dll
+C:\Immi\Personal\MyProjects\you-dl\Immanuel.Ydl\Immanuel.Yl\Test.Cons\obj\Debug\Test.Cons.csprojResolveAssemblyReference.cache
+C:\Immi\Personal\MyProjects\you-dl\Immanuel.Ydl\Immanuel.Yl\Test.Cons\obj\Debug\Test.Cons.exe
+C:\Immi\Personal\MyProjects\you-dl\Immanuel.Ydl\Immanuel.Yl\Test.Cons\obj\Debug\Test.Cons.pdb
+C:\Immi\Personal\MyProjects\you-dl\Immanuel.Ydl\Immanuel.Yl\Test.Cons\bin\Debug\libvideo.dll

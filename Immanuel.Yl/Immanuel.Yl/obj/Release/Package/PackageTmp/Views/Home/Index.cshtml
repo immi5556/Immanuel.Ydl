@@ -1,0 +1,399 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    @*<script src="~/Scripts/jquery.signalR-2.2.2.js"></script>*@
+    <link href="~/Content/app.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Online Free - download youtube</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    <meta name="MobileOptimized" content="width" />
+    <meta name="description" content="Free online youtube download, etc no download required" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+    <META NAME="author" CONTENT="Immanuel">
+    <meta name="keywords" content="free online youtube download, audio download" />
+</head>
+<body style="text-align: center;font-family: 'Arial Narrow', Arial, sans-serif;">
+    <div style="position:fixed;top:10px;left:15px;text-align: center;border: 2px green dashed;z-index:101;background-color:cadetblue;">
+        <span style="background-color:azure;display:inline-block;width:70px;padding:5px;">Converted</span><br />
+        <span style="color:white;font-size:large;" id="gnt"></span> <br />
+        <span style="background-color:azure;display:inline-block;width:70px;padding:5px;">Counts</span>
+    </div>
+    <div style="position:absolute;top:27px;right:12px;">
+        <div id="fb-root"></div>
+        <script>
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.9";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
+        <div class="fb-share-button" data-href="http://ydl.immanuel.co/home/converter" data-layout="box_count" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fvideo-converter.immanuel.co%2Fhome%2Fconverter&amp;src=sdkpreparse">Share</a></div>
+    </div>
+    <div style="position:absolute;right:0px;top:0px;">
+        <div id="google_translate_element"></div>
+        <script type="text/javascript">
+            function googleTranslateElementInit() {
+                new google.translate.TranslateElement({ pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
+            }
+        </script>
+        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    </div>
+
+    <div style="position:relative;">
+        <h2 style="display: inline-block;">
+            Download video or audio youtube
+        </h2>
+    </div><br />
+    <hr />
+    <div id="fe-contain" style="height:80%;width:96%;background-color:#b9acb8;display:inline-block;border-radius:15px;position: relative;">
+        <div id="full-contain" style="height:80%;background-color:#b9acb8;display:inline-block;border-radius:15px;position: relative;padding: 25px;">
+            <div id="code-contain" style="height:485px;background-color:#864f4f;display:inline-block;border-radius:15px;position: relative;float:left;">
+                <div style="background-color:#a5a1a0;border-radius: 15px 15px 0 0">
+                    <h3 style="margin:0px;padding-top:20px;padding-bottom:15px;">Youtube download</h3>
+                </div>
+                <div class="cde-list" style="background-color:#a5a1a0;border-radius: 0 0 15px 15px;display: table;text-align:center;vertical-align:middle;">
+                    <div class="upl-vid" style="height:80px;width:150px;text-align:center;vertical-align:middle;display:table-cell;">
+                        <img src="~/Content/youtube-icon.png" width="50" height="50" /><br />
+                    </div>
+                    <div class="dwl-tofmt" style="height:80px;width:150px;text-align:center;vertical-align:middle;display:table-cell;position: relative;">
+                        <input id="uurl" type="text" style="width: 350px;vertical-align:middle;height:30px;border-radius:5px;" placeholder="&nbsp;&nbsp;Youtube url"/>
+                        <br />
+                        <input type="button" value="Audio" id="btnDwnAud" style="height:35px;border-radius:10px;vertical-align:middle;margin-top:10px;margin-bottom: 10px;" />
+                        <input type="button" value="Video" id="btnDwnVid" style="height:35px;border-radius:10px;vertical-align:middle;margin-top:10px;margin-bottom: 10px;margin-left: 25px;" />
+                    </div>
+                    <div class="dwld-btn" style="height:80px;width:110px;text-align:center;vertical-align:middle;display:table-cell;position: relative;">
+                        
+                    </div>
+                </div>
+                <div class="uplvid-prog" style="height:80px;text-align:center;vertical-align:middle;display:none;position: absolute;width: 389px;left:0;opacity: 0.9;background-color:black;border-radius: 15px;">
+                    <img src="~/Content/load_1.gif" width="50" height="55" style="vertical-align:middle;margin-left:5px;padding-top:15px;" />
+                </div>
+                <div id="vid-error" style="border-radius: 15px;display: table;text-align:center;vertical-align:middle;width:390px;height:30px;margin-top: 10px;color: red;">
+
+                </div>
+                <div id="vid-list" style="border-radius: 15px;display: table;text-align:center;vertical-align:middle;width:390px;margin-top: 10px;">
+
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+            $(document).ready(function () {
+                actOnValue('piiofpr9', 'VisitCnt', 'increment');
+                getValue('piiofpr9', 'VisitCnt');
+
+                $(".upl-vid").on("click", function (evt) {
+                    evt.preventDefault();
+                    $(this).closest(".vid-list").find(".upl-file").trigger("click");
+                });
+
+                $("#fileUpload").on("change", function () {
+                    console.log($(this).val());
+                    var fname = $(this).val();
+                    var ext = fname.split('.').pop();
+                    var typearrs = $("#tofmt option").map(function () {
+                        return $(this).val();
+                    }).get();
+                    if (typearrs.indexOf(ext.toLowerCase()) < 0) {
+                        alert('File TypeNot supported..')
+                        return false;
+                    }
+                    var ofn = fname.split('\\').pop();
+                    ofn = (ofn || "").length > 11 ? (ofn.substr(0, 8) + ".." + $("#tofmt").val()) : ofn;
+                    $("#selfile").text(ofn);
+                });
+
+                $('#btnDwnAud').on('click', function () {
+                    actOnValue('piiofpr9', 'ConvertCnt', 'increment');
+                    var data = new FormData();
+                    data.append('yurl', $("#uurl").val());
+                    data.append('overwrite', false);
+
+                    $(".uplvid-prog").css("display", "table-cell");
+                    // Make Ajax request with the contentType = false, and procesDate = false
+                    var ajaxRequest = $.ajax({
+                        type: "POST",
+                        url: "/api/yl/DlAud",
+                        contentType: false,
+                        processData: false,
+                        data: data
+                    });
+
+                    ajaxRequest.done(function (data, xhr, textStatus) {
+                        var dl = "<a class='buttonDownload' href='" + decodeURIComponent(data.Path).replace(/\+/g, ' ') + "' download='" + data.FileName + "' style='margin-top:10px;'>Download - " + data.FileName + "</a> <a style='cursor:pointer;' class='fbsharelink'><img src='/Content/share_1.png' width='30' height='30' /></a> <br /><span>(Available for 3 Hrs)</span><br />";
+                        $("#vid-list").append($(dl));
+                        //$("#gnt").text(data.TotCnt);
+                    });
+
+                    ajaxRequest.fail(function (data, xhr, textStatus) {
+                        $("#vid-error").text("Erro occured in converting, pls contact <a href='mailto:raj@immanuel.co'>admin</a>");
+                    });
+
+                    ajaxRequest.always(function (data, xhr, textStatus) {
+                        $(".uplvid-prog").css("display", "none");
+                        //$("#fileUpload").replaceWith($("#fileUpload").val('').clone(true));
+                        //$("#selfile").text("Choose File");
+                    });
+                });
+
+                $('#btnDwnVid').on('click', function () {
+                    actOnValue('piiofpr9', 'ConvertCnt', 'increment');
+                    var data = new FormData();
+                    data.append('yurl', $("#uurl").val());
+                    data.append('overwrite', false);
+
+                    $(".uplvid-prog").css("display", "table-cell");
+                    // Make Ajax request with the contentType = false, and procesDate = false
+                    var ajaxRequest = $.ajax({
+                        type: "POST",
+                        url: "/api/yl/DlVid",
+                        contentType: false,
+                        processData: false,
+                        data: data
+                    });
+
+                    ajaxRequest.done(function (data, xhr, textStatus) {
+                        var dl = "<a class='buttonDownload' href='" + decodeURIComponent(data.Path).replace(/\+/g, ' ') + "' download='" + data.FileName + "' style='margin-top:10px;'>Download - " + data.FileName + "</a> <a style='cursor:pointer;' class='fbsharelink'><img src='/Content/share_1.png' width='30' height='30' /></a> <br /><span>(Available for 3 Hrs)</span><br />";
+                        $("#vid-list").append($(dl));
+                        //$("#gnt").text(data.TotCnt);
+                    });
+
+                    ajaxRequest.fail(function (data, xhr, textStatus) {
+                        $("#vid-error").html("Erro occured in converting, pls contact <a href='mailto:raj@immanuel.co'>admin</a>");
+                    });
+
+                    ajaxRequest.always(function (data, xhr, textStatus) {
+                        $(".uplvid-prog").css("display", "none");
+                        //$("#fileUpload").replaceWith($("#fileUpload").val('').clone(true));
+                        //$("#selfile").text("Choose File");
+                    });
+                });
+
+                $(document).on("click", '.fbsharelink', function () {
+                    var shareurl = $(this).data('shareurl');
+                    window.open('https://www.facebook.com/sharer/sharer.php?u=' + shareurl + '&t=' + document.title, '',
+                        'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
+                });
+            });
+    </script>
+    <script type="text/javascript">
+            var getValue = function (appkey, itemkey) {
+                $.ajax({
+                    type: "GET",
+                    url: "http://keyvalue.immanuel.co/api/KeyVal/GetValue/" + appkey + "/" + itemkey,
+                    contentType: false,
+                    processData: false
+                }).done(function (data) {
+                    $("#gnt").text(data || "0");
+                }).fail(function (err) {
+
+                });
+            }
+            var updateValue = function (appkey, itemkey, itemval) {
+                $.ajax({
+                    type: "POST",
+                    url: "http://keyvalue.immanuel.co/api/KeyVal/UpdateValue/" + appkey + "/" + itemkey + "/" + itemval,
+                    contentType: false,
+                    processData: false
+                }).done(function (data) {
+
+                }).fail(function (err) {
+
+                });
+            }
+            var actOnValue = function (appkey, itemkey, action) {
+                $.ajax({
+                    type: "POST",
+                    url: "http://keyvalue.immanuel.co/api/KeyVal/ActOnValue/" + appkey + "/" + itemkey + "/" + action,
+                    contentType: false,
+                    processData: false
+                }).done(function (data) {
+
+                }).fail(function (err) {
+
+                });
+            }
+    </script>
+    <script>
+                (function (i, s, o, g, r, a, m) {
+                    i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                        (i[r].q = i[r].q || []).push(arguments)
+                    }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+                })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+            ga('create', 'UA-102636146-1', 'auto');
+            ga('send', 'pageview');
+
+    </script>
+    <script>
+            var saveData = (function () {
+                var a = document.createElement("a");
+                document.body.appendChild(a);
+                a.style = "display: none";
+                return function (data, fileName, filetype) {
+                    var blob = new Blob([data], { type: filetype }),
+                        url = window.URL.createObjectURL(blob);
+                    a.href = url;
+                    a.download = fileName;
+                    a.click();
+                    setTimeout(function () { window.URL.revokeObjectURL(url); }, 1000);
+                };
+            }());
+
+            var getFiles = function (callback) {
+                $.ajax({
+                    type: "GET",
+                    url: "http://video-converter.immanuel.co/api/File/DownloadFile/" + $("#dev-lng").val(),
+                    contentType: false,
+                    processData: false
+                }).done(function (data) {
+                    //console.log(data);
+                    if (callback) {
+                        callback(data);
+                    }
+                    else {
+                        $("#pre-cddd").text(data);
+                    }
+                }).fail(function (err) {
+
+                });
+            }
+            $("#dev-lng").on("change", function () {
+                getFiles();
+            });
+            $("#btnDwnCode").on("click", function () {
+                getFiles(function (data) {
+                    var ext = $("#dev-lng").val();
+                    if (ext == "android") { ext = "java"; }
+                    saveData(data, "videoapi." + ext, "text/plain;charset=utf-8");
+                });
+            });
+            getFiles();
+    </script>
+    <script>
+
+            //<input type='file' id='fileUpload' />
+            var a7 = (function () {
+                function DownloadVideo(blob) {
+                    var formData = new FormData();
+                    formData.append('yurl', 'https://www.youtube.com/watch?v=3owqvmMf6No'); //change format to be changed.
+                    formData.append('overwrite', false);
+                    var request = new XMLHttpRequest();
+                    request.onreadystatechange = function () {
+                        if (this.readyState == 4 && this.status == 200) {
+                            var type = request.getResponseHeader("Content-Type");
+                            var disposition = request.getResponseHeader("Content-Disposition");
+                            var fname = (getFileName(disposition) || 'Temp') + '.' + getMimes(type);
+                            saveData(this.response, fname, type, )
+                        }
+                    };
+                    request.open('POST', 'http://ydl.immanuel.co/api/yl/dlv');
+                    request.responseType = 'arraybuffer';
+                    request.send(formData);
+                }
+
+                function DownloadAudio(blob) {
+                    var formData = new FormData();
+                    formData.append('yurl', 'https://www.youtube.com/watch?v=3owqvmMf6No'); //change format to be changed.
+                    formData.append('overwrite', false);
+                    var request = new XMLHttpRequest();
+                    request.onreadystatechange = function () {
+                        if (this.readyState == 4 && this.status == 200) {
+                            var type = request.getResponseHeader("Content-Type");
+                            var disposition = request.getResponseHeader("Content-Disposition");
+                            var fname = (getFileName(disposition) || 'Temp') + '.mp3';
+                            saveData(this.response, fname, type, )
+                        }
+                    };
+                    //request.open('POST', 'http://localhost:51627/api/yl/dla');
+                    request.open('POST', 'http://ydl.immanuel.co/api/yl/dla');
+                    request.responseType = 'arraybuffer';
+                    request.send(formData);
+                }
+
+
+                //Utilitites (Use if needed)
+
+                var saveData = (function () {
+                    var a = document.createElement("a");
+                    document.body.appendChild(a);
+                    a.style = "display: none";
+                    return function (data, fileName, filetype) {
+                        var blob = new Blob([data], { type: filetype }),
+                            url = window.URL.createObjectURL(blob);
+                        a.href = url;
+                        a.download = fileName;
+                        a.click();
+                        setTimeout(function () { window.URL.revokeObjectURL(url); }, 1000);
+                    };
+                }());
+
+                var getMimes = function (type) {
+                    if (type === "video/x-flv") {
+                        return "flv";
+                    }
+                    else if (type === "video/mp4") {
+                        return "mp4";
+                    }
+                    else if (type === "video/avi") {
+                        return "avi";
+                    }
+                    else if (type === "video/x-ms-wmv") {
+                        return "wmv";
+                    }
+                    else if (type === "video/mpeg") {
+                        return "mpg";
+                    }
+                    else if (type === "video/quicktime") {
+                        return "mov";
+                    }
+                    else if (type === "video/x-m4v") {
+                        return "m4v";
+                    }
+                    else if (type === "video/x-matroska") {
+                        return "mkv";
+                    }
+                    else if (type === "video/webm") {
+                        return "webm";
+                    }
+                }
+
+                var getFileName = function (disposition) {
+                    var filename = undefined;
+                    if (disposition && disposition.indexOf('attachment') !== -1) {
+                        var filenameRegex = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/;
+                        var matches = filenameRegex.exec(disposition);
+                        if (matches != null && matches[1]) {
+                            filename = matches[1].replace(/['"]/g, '');
+                        }
+                    }
+
+                    if (filename && disposition && disposition.indexOf('inline') !== -1) {
+                        var filenameRegex = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/;
+                        var matches = filenameRegex.exec(disposition);
+                        if (matches != null && matches[1]) {
+                            filename = matches[1].replace(/['"]/g, '');
+                        }
+                    }
+
+                    return filename;
+                }
+                return {
+                    dlvideo: DownloadVideo,
+                    dlaudio: DownloadAudio
+                }
+            })();
+            //a7.convert(document.getElementById('fileUpload').files[0]);
+    </script>
+</body>
+</html>

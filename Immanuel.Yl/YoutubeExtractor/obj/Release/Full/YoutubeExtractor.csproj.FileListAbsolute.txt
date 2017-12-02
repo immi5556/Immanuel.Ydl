@@ -1,0 +1,8 @@
+C:\Immi\Personal\MyProjects\you-dl\Immanuel.Ydl\Immanuel.Yl\YoutubeExtractor\bin\Release\Full\YoutubeExtractor.xml
+C:\Immi\Personal\MyProjects\you-dl\Immanuel.Ydl\Immanuel.Yl\YoutubeExtractor\bin\Release\Full\YoutubeExtractor.dll
+C:\Immi\Personal\MyProjects\you-dl\Immanuel.Ydl\Immanuel.Yl\YoutubeExtractor\bin\Release\Full\YoutubeExtractor.pdb
+C:\Immi\Personal\MyProjects\you-dl\Immanuel.Ydl\Immanuel.Yl\YoutubeExtractor\bin\Release\Full\Newtonsoft.Json.dll
+C:\Immi\Personal\MyProjects\you-dl\Immanuel.Ydl\Immanuel.Yl\YoutubeExtractor\bin\Release\Full\Newtonsoft.Json.xml
+C:\Immi\Personal\MyProjects\you-dl\Immanuel.Ydl\Immanuel.Yl\YoutubeExtractor\obj\Release\Full\YoutubeExtractor.csprojResolveAssemblyReference.cache
+C:\Immi\Personal\MyProjects\you-dl\Immanuel.Ydl\Immanuel.Yl\YoutubeExtractor\obj\Release\Full\YoutubeExtractor.dll
+C:\Immi\Personal\MyProjects\you-dl\Immanuel.Ydl\Immanuel.Yl\YoutubeExtractor\obj\Release\Full\YoutubeExtractor.pdb

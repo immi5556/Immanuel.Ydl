@@ -1,0 +1,7 @@
+C:\Immi\Sample\you-DLs\YoutubeExtractor-master\YoutubeExtractor\YoutubeExtractor\bin\Debug\Portable\YoutubeExtractor.dll
+C:\Immi\Sample\you-DLs\YoutubeExtractor-master\YoutubeExtractor\YoutubeExtractor\bin\Debug\Portable\YoutubeExtractor.pdb
+C:\Immi\Sample\you-DLs\YoutubeExtractor-master\YoutubeExtractor\YoutubeExtractor\bin\Debug\Portable\Newtonsoft.Json.dll
+C:\Immi\Sample\you-DLs\YoutubeExtractor-master\YoutubeExtractor\YoutubeExtractor\bin\Debug\Portable\Newtonsoft.Json.xml
+C:\Immi\Sample\you-DLs\YoutubeExtractor-master\YoutubeExtractor\YoutubeExtractor\obj\Debug\Portable\YoutubeExtractor_Portable.csprojResolveAssemblyReference.cache
+C:\Immi\Sample\you-DLs\YoutubeExtractor-master\YoutubeExtractor\YoutubeExtractor\obj\Debug\Portable\YoutubeExtractor.dll
+C:\Immi\Sample\you-DLs\YoutubeExtractor-master\YoutubeExtractor\YoutubeExtractor\obj\Debug\Portable\YoutubeExtractor.pdb
