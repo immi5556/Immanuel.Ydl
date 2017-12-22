@@ -13,6 +13,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="ApplicationInsights.config">
       <publishTime>11/30/2017 13:56:10</publishTime>
     </File>
+    <File Include="App_Data/ffmpeg/ffmpeg.exe">
+      <publishTime>07/14/2017 00:39:53</publishTime>
+    </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>02/22/2013 18:13:40</publishTime>
     </File>
@@ -23,10 +26,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/30/2017 13:56:10</publishTime>
     </File>
     <File Include="bin/Immanuel.Yl.dll">
-      <publishTime>12/02/2017 04:09:23</publishTime>
+      <publishTime>12/17/2017 00:56:10</publishTime>
     </File>
     <File Include="bin/Immanuel.Yl.pdb">
-      <publishTime>12/02/2017 04:09:23</publishTime>
+      <publishTime>12/17/2017 00:56:10</publishTime>
     </File>
     <File Include="bin/libvideo.dll">
       <publishTime>08/19/2017 18:44:30</publishTime>
@@ -182,13 +185,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/11/2013 02:58:38</publishTime>
     </File>
     <File Include="bin/YoutubeExtractor.dll">
-      <publishTime>12/02/2017 04:09:18</publishTime>
+      <publishTime>12/17/2017 00:56:05</publishTime>
     </File>
     <File Include="bin/YoutubeExtractor.pdb">
-      <publishTime>12/02/2017 04:09:18</publishTime>
+      <publishTime>12/17/2017 00:56:05</publishTime>
     </File>
     <File Include="Content/app.css">
-      <publishTime>07/17/2017 01:06:06</publishTime>
+      <publishTime>12/05/2017 01:34:47</publishTime>
     </File>
     <File Include="Content/bootstrap.css">
       <publishTime>11/30/2017 13:56:03</publishTime>
@@ -209,7 +212,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/02/2017 00:07:02</publishTime>
     </File>
     <File Include="favicon.ico">
-      <publishTime>11/30/2017 13:55:58</publishTime>
+      <publishTime>04/21/2016 13:14:18</publishTime>
     </File>
     <File Include="fonts/glyphicons-halflings-regular.eot">
       <publishTime>11/30/2017 13:56:03</publishTime>
@@ -231,6 +234,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="packages.config">
       <publishTime>12/02/2017 02:03:56</publishTime>
+    </File>
+    <File Include="Scrape/Index.html">
+      <publishTime>12/12/2017 19:35:47</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
       <publishTime>11/30/2017 13:56:03</publishTime>
@@ -272,7 +278,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/02/2017 04:20:32</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>12/02/2017 04:13:55</publishTime>
+      <publishTime>12/05/2017 01:19:11</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>11/30/2017 13:55:58</publishTime>

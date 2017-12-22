@@ -1,0 +1,22 @@
+﻿{
+  "kind": "youtube#videoListResponse",
+  "etag": "\"7991kDR-QPaa9r0pePmDjBEa2h8/Y7INOKAbemfkGi2SKWrzjZcj4vQ\"",
+  "pageInfo": {
+    "totalResults": 1,
+    "resultsPerPage": 1
+  },
+  "items": [
+    {
+      "kind": "youtube#video",
+      "etag": "\"7991kDR-QPaa9r0pePmDjBEa2h8/NNaVmPPPHgKbO9S81V-L_HloTjM\"",
+      "id": "Rq6aBSN_BZc",
+      "statistics": {
+        "viewCount": "10",
+        "likeCount": "0",
+        "dislikeCount": "0",
+        "favoriteCount": "0",
+        "commentCount": "0"
+      }
+    }
+  ]
+}

@@ -9,19 +9,22 @@
     @*<script src="~/Scripts/jquery.signalR-2.2.2.js"></script>*@
     <link href="~/Content/app.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width" />
-    <title>Online Free - download youtube</title>
+    <title>Online Free - download youtube audio or video</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
     <meta name="MobileOptimized" content="width" />
-    <meta name="description" content="Free online youtube download, etc no download required" />
+    <meta name="description" content="Free online youtube video and mp3 extractor audio download, donwload only duration, with just one click simple & easy" />
     <meta name="HandheldFriendly" content="true" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+    <META NAME="ROBOTS" CONTENT="All, index, follow">
+    <meta name="revisit-after" content="7 days">
+    <link rel="shortcut icon" href="http://ydl.immanuel.co/favicon.ico">
     <META NAME="author" CONTENT="Immanuel">
-    <meta name="keywords" content="free online youtube download, audio download" />
+    <meta name="keywords" content="free online youtube video download,free online youtube audio download, free online youtube mp3 extract download, split download, download specific portion both video & audio" />
 </head>
 <body style="text-align: center;font-family: 'Arial Narrow', Arial, sans-serif;">
     <div style="position:fixed;top:10px;left:15px;text-align: center;border: 2px green dashed;z-index:101;background-color:cadetblue;">
-        <span style="background-color:azure;display:inline-block;width:70px;padding:5px;">Converted</span><br />
+        <span style="background-color:azure;display:inline-block;width:70px;padding:5px;">Download</span><br />
         <span style="color:white;font-size:large;" id="gnt"></span> <br />
         <span style="background-color:azure;display:inline-block;width:70px;padding:5px;">Counts</span>
     </div>
@@ -35,9 +38,9 @@
                 js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.9";
                 fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));</script>
-        <div class="fb-share-button" data-href="http://ydl.immanuel.co/home/converter" data-layout="box_count" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fvideo-converter.immanuel.co%2Fhome%2Fconverter&amp;src=sdkpreparse">Share</a></div>
+        <div class="fb-share-button" data-href="http://ydl.immanuel.co/" data-layout="box_count" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fydl.immanuel.co&amp;src=sdkpreparse">Share</a></div>
     </div>
-    <div style="position:absolute;right:0px;top:0px;">
+    <div style="position:absolute;right:0px;top:0px;z-index:103;">
         <div id="google_translate_element"></div>
         <script type="text/javascript">
             function googleTranslateElementInit() {
@@ -56,21 +59,24 @@
     <div id="fe-contain" style="height:80%;width:96%;background-color:#b9acb8;display:inline-block;border-radius:15px;position: relative;">
         <div id="full-contain" style="height:80%;background-color:#b9acb8;display:inline-block;border-radius:15px;position: relative;padding: 25px;">
             <div id="code-contain" style="height:485px;background-color:#864f4f;display:inline-block;border-radius:15px;position: relative;float:left;">
-                <div style="background-color:#a5a1a0;border-radius: 15px 15px 0 0">
+                <div style="background-color:#a5a1a0;border-radius: 15px 15px 0 0;padding-bottom: 10px;">
                     <h3 style="margin:0px;padding-top:20px;padding-bottom:15px;">Youtube download</h3>
+                    <h5>(ex: Regular Youtube url): https://www.youtube.com/watch?v=Rq6aBSN_BZc</h5>
+                    <h5>(ex: Download Specific Portion): https://www.youtube.com/embed/zeI-JD6RO0k?start=5&end=30</h5>
+                    <h5>(ex: Download Specific Portion): https://www.youtube.com/watch?v=Rq6aBSN_BZc?start=5&end=15</h5>
                 </div>
                 <div class="cde-list" style="background-color:#a5a1a0;border-radius: 0 0 15px 15px;display: table;text-align:center;vertical-align:middle;">
                     <div class="upl-vid" style="height:80px;width:150px;text-align:center;vertical-align:middle;display:table-cell;">
                         <img src="~/Content/youtube-icon.png" width="50" height="50" /><br />
                     </div>
                     <div class="dwl-tofmt" style="height:80px;width:150px;text-align:center;vertical-align:middle;display:table-cell;position: relative;">
-                        <input id="uurl" type="text" style="width: 350px;vertical-align:middle;height:30px;border-radius:5px;" placeholder="&nbsp;&nbsp;Youtube url"/>
+                        <input id="uurl" type="text" style="width: 350px;vertical-align:middle;height:30px;border-radius:5px;" placeholder="&nbsp;&nbsp;Youtube url" />
                         <br />
                         <input type="button" value="Audio" id="btnDwnAud" style="height:35px;border-radius:10px;vertical-align:middle;margin-top:10px;margin-bottom: 10px;" />
                         <input type="button" value="Video" id="btnDwnVid" style="height:35px;border-radius:10px;vertical-align:middle;margin-top:10px;margin-bottom: 10px;margin-left: 25px;" />
                     </div>
                     <div class="dwld-btn" style="height:80px;width:110px;text-align:center;vertical-align:middle;display:table-cell;position: relative;">
-                        
+
                     </div>
                 </div>
                 <div class="uplvid-prog" style="height:80px;text-align:center;vertical-align:middle;display:none;position: absolute;width: 389px;left:0;opacity: 0.9;background-color:black;border-radius: 15px;">
@@ -90,27 +96,6 @@
             $(document).ready(function () {
                 actOnValue('piiofpr9', 'VisitCnt', 'increment');
                 getValue('piiofpr9', 'VisitCnt');
-
-                $(".upl-vid").on("click", function (evt) {
-                    evt.preventDefault();
-                    $(this).closest(".vid-list").find(".upl-file").trigger("click");
-                });
-
-                $("#fileUpload").on("change", function () {
-                    console.log($(this).val());
-                    var fname = $(this).val();
-                    var ext = fname.split('.').pop();
-                    var typearrs = $("#tofmt option").map(function () {
-                        return $(this).val();
-                    }).get();
-                    if (typearrs.indexOf(ext.toLowerCase()) < 0) {
-                        alert('File TypeNot supported..')
-                        return false;
-                    }
-                    var ofn = fname.split('\\').pop();
-                    ofn = (ofn || "").length > 11 ? (ofn.substr(0, 8) + ".." + $("#tofmt").val()) : ofn;
-                    $("#selfile").text(ofn);
-                });
 
                 $('#btnDwnAud').on('click', function () {
                     actOnValue('piiofpr9', 'ConvertCnt', 'increment');
@@ -223,17 +208,14 @@
                 });
             }
     </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110530584-1"></script>
     <script>
-                (function (i, s, o, g, r, a, m) {
-                    i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
-                        (i[r].q = i[r].q || []).push(arguments)
-                    }, i[r].l = 1 * new Date(); a = s.createElement(o),
-                        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-                })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
 
-            ga('create', 'UA-102636146-1', 'auto');
-            ga('send', 'pageview');
-
+            gtag('config', 'UA-110530584-1');
     </script>
     <script>
             var saveData = (function () {
@@ -249,36 +231,7 @@
                     setTimeout(function () { window.URL.revokeObjectURL(url); }, 1000);
                 };
             }());
-
-            var getFiles = function (callback) {
-                $.ajax({
-                    type: "GET",
-                    url: "http://video-converter.immanuel.co/api/File/DownloadFile/" + $("#dev-lng").val(),
-                    contentType: false,
-                    processData: false
-                }).done(function (data) {
-                    //console.log(data);
-                    if (callback) {
-                        callback(data);
-                    }
-                    else {
-                        $("#pre-cddd").text(data);
-                    }
-                }).fail(function (err) {
-
-                });
-            }
-            $("#dev-lng").on("change", function () {
-                getFiles();
-            });
-            $("#btnDwnCode").on("click", function () {
-                getFiles(function (data) {
-                    var ext = $("#dev-lng").val();
-                    if (ext == "android") { ext = "java"; }
-                    saveData(data, "videoapi." + ext, "text/plain;charset=utf-8");
-                });
-            });
-            getFiles();
+      
     </script>
     <script>
 

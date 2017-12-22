@@ -1,0 +1,13 @@
+﻿client ID: 829641606433-1ert3t5d881hrntjqtbr4ugs9m91e1h1.apps.googleusercontent.com
+client secret: oDQkT5-A22H-71VWz1FXl0MH
+
+Client Key: AIzaSyBRhULlCbQcdBk_HLFrpP-UU6VlyXInAPQ
+
+https://www.googleapis.com/youtube/v3/commentThreads?key=AIzaSyBRhULlCbQcdBk_HLFrpP-UU6VlyXInAPQ&textFormat=plainText&part=snippet&videoId=9EVeC7jmdtc&maxResults=100
+
+-- youtube video details
+https://www.googleapis.com/youtube/v3/videos?part=statistics&id=Qq7mpb-hCBY&key=AIzaSyBRhULlCbQcdBk_HLFrpP-UU6VlyXInAPQ
+
+
+--- Negative words
+http://positivewordsresearch.com/list-of-negative-words/

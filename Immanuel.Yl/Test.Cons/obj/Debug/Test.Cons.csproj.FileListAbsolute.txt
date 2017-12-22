@@ -6,3 +6,7 @@ C:\Immi\Personal\MyProjects\you-dl\Immanuel.Ydl\Immanuel.Yl\Test.Cons\obj\Debug\
 C:\Immi\Personal\MyProjects\you-dl\Immanuel.Ydl\Immanuel.Yl\Test.Cons\obj\Debug\Test.Cons.exe
 C:\Immi\Personal\MyProjects\you-dl\Immanuel.Ydl\Immanuel.Yl\Test.Cons\obj\Debug\Test.Cons.pdb
 C:\Immi\Personal\MyProjects\you-dl\Immanuel.Ydl\Immanuel.Yl\Test.Cons\bin\Debug\libvideo.dll
+C:\Immi\Personal\MyProjects\you-dl\Immanuel.Ydl\Immanuel.Yl\Test.Cons\bin\Debug\YoutubeExtractor.dll
+C:\Immi\Personal\MyProjects\you-dl\Immanuel.Ydl\Immanuel.Yl\Test.Cons\bin\Debug\Newtonsoft.Json.dll
+C:\Immi\Personal\MyProjects\you-dl\Immanuel.Ydl\Immanuel.Yl\Test.Cons\bin\Debug\YoutubeExtractor.pdb
+C:\Immi\Personal\MyProjects\you-dl\Immanuel.Ydl\Immanuel.Yl\Test.Cons\bin\Debug\Newtonsoft.Json.xml

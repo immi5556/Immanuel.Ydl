@@ -1,0 +1,64 @@
+﻿{
+  "ViewCountRank": [
+    {
+      "CountLess": 100,
+      "Rank": "Picking Up"
+    },
+    {
+      "CountLess": 1000,
+      "Rank": "Energizing"
+    },
+    {
+      "CountLess": 10000,
+      "Rank": "Popular"
+    },
+    {
+      "CountLess": 100000,
+      "Rank": "Very Popular"
+    },
+    {
+      "CountLess": 1000000,
+      "Rank": "Extravagant"
+    },
+    {
+      "CountLess": 2000000,
+      "Rank": "Exuberant"
+    },
+    {
+      "CountLess": 3000000,
+      "Rank": "Doing Great"
+    },
+    {
+      "CountLess": 4000000,
+      "Rank": "Wow.."
+    }
+  ],
+  "LikeCountRank": [
+    {
+      "CountLess": 100,
+      "Rank": "Need Initiative"
+    },
+    {
+      "CountLess": 500,
+      "Rank": "Getting Started.."
+    },
+    {
+      "CountLess": 1000,
+      "Rank": "Happy.."
+    },
+    {
+      "CountLess": 10000,
+      "Rank": "Progressive"
+    }
+  ],
+  "CommentCountRank": [
+    {
+      "CountLess": 100,
+      "Rank": "Early Bird"
+    },
+    {
+      "CountLess": 1000,
+      "Rank": "Going Well.."
+    }
+  ]
+}

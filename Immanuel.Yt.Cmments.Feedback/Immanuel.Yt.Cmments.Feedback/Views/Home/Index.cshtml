@@ -1,0 +1,262 @@
+﻿@{
+    Layout = null;
+}
+
+<html>
+<head>
+    <link href="~/Content/Style.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Youtube Video Comments And Rating</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    <meta name="MobileOptimized" content="width" />
+    <meta name="description" content="Youtbue Comments Rating, Google Plus Rating, Facebook Rating, Profanity and Badwords Checker" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <META NAME="ROBOTS" CONTENT="All, index, follow">
+    <meta name="revisit-after" content="7 days">
+    <link rel="shortcut icon" href="http://feedback.immanuel.co/favicon.ico">
+    <META NAME="author" CONTENT="Immanuel">
+    <meta name="keywords" content="Youtbue Comments Rating, Google Plus Rating, Facebook Rating, Profanity and Badwords Checker" />
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.signalR-2.2.2.min.js"></script>
+    <script src="~/signalr/hubs"></script>
+    <style>
+        .button-base {
+            background-color: #3bb3e0;
+            width: 150px;
+            display: inline-block;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 12px;
+            text-decoration: none;
+            color: #fff;
+            position: relative;
+            margin-top: 40px;
+            padding-bottom: 10px;
+            padding-top: 10px;
+            background-image: linear-gradient(bottom, rgb(44,160,202) 0%, rgb(62,184,229) 100%);
+            background-image: -o-linear-gradient(bottom, rgb(44,160,202) 0%, rgb(62,184,229) 100%);
+            background-image: -moz-linear-gradient(bottom, rgb(44,160,202) 0%, rgb(62,184,229) 100%);
+            background-image: -webkit-linear-gradient(bottom, rgb(44,160,202) 0%, rgb(62,184,229) 100%);
+            background-image: -ms-linear-gradient(bottom, rgb(44,160,202) 0%, rgb(62,184,229) 100%);
+            background-image: -webkit-gradient( linear, left bottom, left top, color-stop(0, rgb(44,160,202)), color-stop(1, rgb(62,184,229)) );
+            -webkit-border-bottom-right-radius: 5px;
+            -webkit-border-bottom-left-radius: 5px;
+            -moz-border-radius-bottomright: 5px;
+            -moz-border-radius-bottomleft: 5px;
+            border-bottom-right-radius: 5px;
+            border-bottom-left-radius: 5px;
+            -webkit-box-shadow: inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #156785, 0px 10px 5px #999;
+            -moz-box-shadow: inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #156785, 0px 10px 5px #999;
+            -o-box-shadow: inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #156785, 0px 10px 5px #999;
+            box-shadow: inset 0px 1px 0px #2ab7ec, 0px 5px 0px 0px #156785, 0px 10px 5px #999;
+        }
+
+            .button-base:active {
+                top: 0px;
+                background-image: linear-gradient(bottom, rgb(62,184,229) 0%, rgb(44,160,202) 100%);
+                background-image: -o-linear-gradient(bottom, rgb(62,184,229) 0%, rgb(44,160,202) 100%);
+                background-image: -moz-linear-gradient(bottom, rgb(62,184,229) 0%, rgb(44,160,202) 100%);
+                background-image: -webkit-linear-gradient(bottom, rgb(62,184,229) 0%, rgb(44,160,202) 100%);
+                background-image: -ms-linear-gradient(bottom, rgb(62,184,229) 0%, rgb(44,160,202) 100%);
+                background-image: -webkit-gradient( linear, left bottom, left top, color-stop(0, rgb(62,184,229)), color-stop(1, rgb(44,160,202)) );
+                -webkit-box-shadow: inset 0px 4px 1px #0b698b, 0px 2px 0px 0px #156785, 0px 5px 3px #999;
+                -moz-box-shadow: 0px 2px 0px 1px #156785, 0px 5px 3px #999;
+                -o-box-shadow: 0px 2px 0px 1px #156785, 0px 5px 3px #999;
+                box-shadow: inset 0px 4px 1px #0b698b, 0px 2px 0px 0px #156785, 0px 5px 3px #999;
+            }
+
+            .button-base::before {
+                background-color: #fff;
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: contain;
+                content: "";
+                width: 150px;
+                height: 40px;
+                position: absolute;
+                top: -30px;
+                left: 0px;
+                margin-top: -11px;
+                z-index: -1;
+                -webkit-border-top-left-radius: 5px;
+                -webkit-border-top-right-radius: 5px;
+                -moz-border-radius-topleft: 5px;
+                -moz-border-radius-topright: 5px;
+                border-top-left-radius: 5px;
+                border-top-right-radius: 5px;
+            }
+
+        .yt::before {
+            background-image: url(../../Content/yt_l.png);
+        }
+
+        .button-base:active::before {
+            top: -30px;
+            -webkit-box-shadow: 0px 3px 0px #ccc;
+            -moz-box-shadow: 0px 3px 0px #ccc;
+            -o-box-shadow: 0px 3px 0px #ccc;
+            box-shadow: 0px 3px 0px #ccc;
+        }
+
+        .fb::before {
+            background-image: url(../../Content/fb_l.png);
+        }
+
+        .gp::before {
+            background-image: url(../../Content/gp_l.png);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div style="position:relative;">
+            <h1 style="color: coral;position:relative;">Check Rating</h1>
+        </div>
+        <br />
+        <div style="border:2px #70abc5 double;padding: 20px;border-radius:7px;position:relative;">
+            <input type="text" id="yurl" class="input-text" placeholder="Youtube url or id" />
+            <a href="javascript:void(0);" onclick="javascript:a7.reviewYoutube();" class="button-base yt">Rate</a>
+        </div>
+        <br />
+        <div id="id-rest" style="font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;padding-top:5px;position:relative;">
+
+            <div class="progress">
+                <div class="circle done">
+                    <span class="label">1</span>
+                    <span class="title">0%</span>
+                </div>
+                <span class="bar done"></span>
+                <div class="circle done">
+                    <span class="label">2</span>
+                    <span class="title">25%</span>
+                </div>
+                <span class="bar half"></span>
+                <div class="circle active">
+                    <span class="label">3</span>
+                    <span class="title">50%</span>
+                </div>
+                <span class="bar"></span>
+                <div class="circle">
+                    <span class="label">4</span>
+                    <span class="title">75%</span>
+                </div>
+                <span class="bar"></span>
+                <div class="circle">
+                    <span class="label">5</span>
+                    <span class="title">100%</span>
+                </div>
+            </div>
+            <div id="prog-txt" style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight: bolder;color: cadetblue;">
+
+            </div>
+        </div>
+        <div style="border:2px #70abc5 double;padding: 20px;border-radius:7px;display:none;">
+            <input type="text" id="yurl" class="input-text" placeholder="Facebook id" />
+            <a href="javascript:void(0);" class="button-base fb">Rate</a>
+        </div>
+        <br />
+        <div style="border:2px #70abc5 double;padding: 20px;border-radius:7px;display:none;">
+            <input type="text" id="yurl" class="input-text" placeholder="Googleplus Id" />
+            <a href="javascript:void(0);" class="button-base gp">Rate</a>
+        </div>
+    </div>
+    <script type="text/javascript">
+        function youtube_parser(url) {
+            var regExp = /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+            var match = url.match(regExp);
+            if (match && match[2].length == 11) {
+                return match[2];
+            } else {
+                if ((url || '').indexOf('http') == -1) {
+                    return url;
+                }
+            }
+        }
+    </script>
+    <script type="text/javascript">
+        var a7 = (function () {
+
+            var ajaxer = function (url, fd, cb) {
+                var request = new XMLHttpRequest();
+                request.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        console.log(this.response);
+                        cb(this.response);
+                    }
+                };
+                //request.open('POST', '/review/youtube');
+                request.open('POST', url);
+                request.send(fd);
+            }
+
+            function ReviewYoutube() {
+                //document.getElementById("id-rest").innerHTML = "";
+                initprg();
+                prgg('Started....');
+                if (!document.getElementById('yurl').value) {
+                    return;
+                }
+                var fd = new FormData();
+                fd.append('youtubeid', document.getElementById('yurl').value);
+                fd.append('clientid', clientid);
+                ajaxer('/review/youtube', fd, function (data) {
+                    data = (data || '').replace(/\\r\\n/g, '<br />');
+                    setTimeout(function () {
+                        hideprg();
+                        //document.getElementById("id-rest").innerHTML = data;
+                        $("#prog-txt").html(data);
+                    }, 2000);
+                });
+            }
+
+            return {
+                reviewYoutube: ReviewYoutube
+            }
+        })();
+    </script>
+    <script type="text/javascript">
+        var clientid;
+        var i = 1;
+
+        var hideprg = function () {
+            $(".progress").hide();
+        }
+
+        var initprg = function () {
+            i = 1;
+            $(".progress").show();
+            $('.progress .circle').removeClass().addClass('circle');
+            $('.progress .bar').removeClass().addClass('bar');
+        }
+        var prgg = function (txt) {
+            $("#prog-txt").text(txt);
+            $('.progress .circle:nth-of-type(' + i + ')').addClass('active');
+            $('.progress .circle:nth-of-type(' + (i - 1) + ')').removeClass('active').addClass('done');
+            $('.progress .circle:nth-of-type(' + (i - 1) + ') .label').html('&#10003;');
+            $('.progress .bar:nth-of-type(' + (i - 1) + ')').addClass('active');
+            $('.progress .bar:nth-of-type(' + (i - 2) + ')').removeClass('active').addClass('done');
+            i++;
+            if (i == 0) {
+                $('.progress .bar').removeClass().addClass('bar');
+                $('.progress div.circle').removeClass().addClass('circle');
+                i = 1;
+            }
+        }
+        $(function (txt) {
+            hideprg();
+            var progressHub = $.connection.progressHub;
+            progressHub.client.progress = function (msg) {
+                console.log("Hello from ASP.NET Web API" + msg);
+                prgg(msg);
+            };
+            $.connection.hub.start().done(function () {
+                clientid = $.connection.hub.id;
+                console.log("started");
+            }).fail(function (result) {
+                console.log(result);
+            });
+        });
+    </script>
+</body>
+</html>

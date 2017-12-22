@@ -1,5 +1,6 @@
 ﻿using MediaToolkit;
 using MediaToolkit.Model;
+using MediaToolkit.Options;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Web;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using VideoLibrary;
@@ -27,11 +29,21 @@ namespace Immanuel.Yl.Controllers
         {
             ++GlobalCnt;
             string yurl = System.Web.HttpContext.Current.Request.Form["yurl"];
+            string lurl = yurl;
+            if ((yurl ?? "").ToLower().LastIndexOf("?start=") > -1)
+            {
+                yurl = (yurl ?? "").Remove((yurl ?? "").ToLower().LastIndexOf("?start="));
+            }
+            if ((yurl ?? "").ToLower().LastIndexOf("?end=") > -1)
+            {
+                yurl = (yurl ?? "").Remove((yurl ?? "").ToLower().LastIndexOf("?end="));
+            }
             bool owrite = Convert.ToBoolean(System.Web.HttpContext.Current.Request.Form["overwrite"] ?? "false");
             IEnumerable<VideoInfo> videoInfos = DownloadUrlResolver.GetDownloadUrls(yurl, false);
             VideoInfo video = videoInfos
                 .First(info => info.VideoType == VideoType.Mp4 && info.Resolution == 360);
             var pth = Path.Combine(pPath, RemoveIllegalPathCharacters(video.Title) + video.VideoExtension);
+            var splitVid = Path.Combine(pPath, RemoveIllegalPathCharacters(video.Title) + "-Split" + video.VideoExtension);
             if (owrite && File.Exists(pth))
             {
                 File.Delete(pth);
@@ -43,6 +55,43 @@ namespace Immanuel.Yl.Controllers
             else
             {
                 DownloadVideo(video, pth);
+            }
+            Uri myUri = new Uri(lurl);
+            string qry = myUri.Query.Substring(myUri.Query.LastIndexOf("?"));
+            string strstart = HttpUtility.ParseQueryString(qry).Get("start");
+            string strend = HttpUtility.ParseQueryString(qry).Get("end");
+            int start = 0, end = 0;
+            int.TryParse(strstart, out start);
+            int.TryParse(strend, out end);
+            if (start > 0 || end > 0)
+            {
+                var inputFile = new MediaFile { Filename = pth };
+                var outputFile = new MediaFile { Filename = splitVid };
+                using (var engine = new Engine(System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/ffmpeg/ffmpeg.exe")))
+                {
+                    engine.GetMetadata(inputFile);
+                    if (start > 0 || end > 0)
+                    {
+                        if (start > 0 && end < start)
+                            end = inputFile.Metadata.Duration.Seconds;
+                        var options = new ConversionOptions();
+                        options.CutMedia(TimeSpan.FromSeconds(start), TimeSpan.FromSeconds(end));
+                        engine.Convert(inputFile, outputFile, options);
+                    }
+                    else
+                    {
+                        engine.Convert(inputFile, outputFile);
+                    }
+                    return new HttpResponseMessage()
+                    {
+                        Content = new JsonContent(new
+                        {
+                            Path = System.Web.HttpUtility.UrlEncode(@"/Content/Dlds/" + Path.GetFileName(splitVid)),
+                            FileName = Path.GetFileName(splitVid),
+                            TotCnt = GlobalCnt
+                        })
+                    };
+                }
             }
             return new HttpResponseMessage()
             {
@@ -134,50 +183,91 @@ namespace Immanuel.Yl.Controllers
         public HttpResponseMessage DlAud()
         {
             ++GlobalCnt;
-
-            string yurl = System.Web.HttpContext.Current.Request.Form["yurl"];
-            bool owrite = Convert.ToBoolean(System.Web.HttpContext.Current.Request.Form["overwrite"] ?? "false");
-            IEnumerable<VideoInfo> videoInfos = DownloadUrlResolver.GetDownloadUrls(yurl, false);
-            VideoInfo video = videoInfos
-                .First(info => info.VideoType == VideoType.Mp4 && info.Resolution == 360);
-            var pth = Path.Combine(pPath, RemoveIllegalPathCharacters(video.Title) + video.VideoExtension);
-            string audfil = Path.ChangeExtension(pth, "mp3");
-
-            if (owrite && File.Exists(audfil))
+            try
             {
-                File.Delete(audfil);
-            }
-            else if (!owrite && File.Exists(audfil))
-            {
-
-            }
-            else
-            {
-                if (File.Exists(pth))
+                string yurl = System.Web.HttpContext.Current.Request.Form["yurl"];
+                string lurl = yurl;
+                if((yurl ?? "").ToLower().LastIndexOf("?start=") > -1)
                 {
-                    //File.Delete(pth);
+                    yurl = (yurl ?? "").Remove((yurl ?? "").ToLower().LastIndexOf("?start="));
+                }
+                if ((yurl ?? "").ToLower().LastIndexOf("?end=") > -1)
+                {
+                    yurl = (yurl ?? "").Remove((yurl ?? "").ToLower().LastIndexOf("?end="));
+                }
+                bool owrite = Convert.ToBoolean(System.Web.HttpContext.Current.Request.Form["overwrite"] ?? "false");
+                IEnumerable<VideoInfo> videoInfos = DownloadUrlResolver.GetDownloadUrls(yurl, false);
+                VideoInfo video = videoInfos
+                    .First(info => info.VideoType == VideoType.Mp4 && info.Resolution == 360);
+                var pth = Path.Combine(pPath, RemoveIllegalPathCharacters(video.Title) + video.VideoExtension);
+                string audfil = Path.ChangeExtension(pth, "mp3");
+
+                if (owrite && File.Exists(audfil))
+                {
+                    File.Delete(audfil);
+                }
+                else if (!owrite && File.Exists(audfil))
+                {
+
                 }
                 else
                 {
-                    DownloadVideo(video, pth);
+                    if (File.Exists(pth))
+                    {
+                        //File.Delete(pth);
+                    }
+                    else
+                    {
+                        DownloadVideo(video, pth);
+                    }
+                    Uri myUri = new Uri(lurl);
+                    string strstart = HttpUtility.ParseQueryString(myUri.Query).Get("start");
+                    string strend = HttpUtility.ParseQueryString(myUri.Query).Get("end");
+                    long start = 0, end = 0;
+                    long.TryParse(strstart, out start);
+                    long.TryParse(strend, out end);
+                    var inputFile = new MediaFile { Filename = pth };
+                    var outputFile = new MediaFile { Filename = audfil };
+                    using (var engine = new Engine(System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/ffmpeg/ffmpeg.exe")))
+                    {
+                        engine.GetMetadata(inputFile);
+                        if (start > 0 || end > 0)
+                        {
+                            if (start > 0 && end < start)
+                                end = inputFile.Metadata.Duration.Ticks;
+                            var options = new ConversionOptions();
+                            options.CutMedia(TimeSpan.FromSeconds(start), TimeSpan.FromSeconds(end));
+                            engine.Convert(inputFile, outputFile, options);
+                        }
+                        else
+                        {
+                            engine.Convert(inputFile, outputFile);
+                        }
+                    }
                 }
-                var inputFile = new MediaFile { Filename = pth };
-                var outputFile = new MediaFile { Filename = audfil };
-                using (var engine = new Engine())
+                return new HttpResponseMessage()
                 {
-                    engine.GetMetadata(inputFile);
-                    engine.Convert(inputFile, outputFile);
-                }
+                    Content = new JsonContent(new
+                    {
+                        Path = System.Web.HttpUtility.UrlEncode(@"/Content/Dlds/" + Path.GetFileName(audfil)),
+                        FileName = Path.GetFileName(audfil),
+                        TotCnt = GlobalCnt
+                    })
+                };
             }
-            return new HttpResponseMessage()
+            catch (Exception exp)
             {
-                Content = new JsonContent(new
+                return new HttpResponseMessage()
                 {
-                    Path = System.Web.HttpUtility.UrlEncode(@"~/Content/Dlds/" + Path.GetFileName(audfil)),
-                    FileName = Path.GetFileName(audfil),
-                    TotCnt = GlobalCnt
-                })
-            };
+                    Content = new JsonContent(new
+                    {
+                        Path = System.Web.HttpUtility.UrlEncode(@"/Content/Dlds/"),
+                        FileName = "Error Occured",
+                        TotCnt = GlobalCnt,
+                        Excp = exp.ToString()
+                    })
+                };
+            }
         }
 
         [HttpPost]
@@ -214,7 +304,7 @@ namespace Immanuel.Yl.Controllers
                     }
                     var inputFile = new MediaFile { Filename = pth };
                     var outputFile = new MediaFile { Filename = audfil };
-                    using (var engine = new Engine())
+                    using (var engine = new Engine(System.Web.Hosting.HostingEnvironment.MapPath("~/App_Data/ffmpeg/ffmpeg.exe")))
                     {
                         engine.GetMetadata(inputFile);
                         engine.Convert(inputFile, outputFile);
@@ -227,7 +317,7 @@ namespace Immanuel.Yl.Controllers
             }
 
             HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK);
-            byte[] arr = string.IsNullOrEmpty(err) ?  File.ReadAllBytes(audfil) : System.Text.Encoding.UTF8.GetBytes(err);
+            byte[] arr = string.IsNullOrEmpty(err) ? File.ReadAllBytes(audfil) : System.Text.Encoding.UTF8.GetBytes(err);
             response.Content = new StreamContent(new MemoryStream(arr));
             response.Content.Headers.ContentType = new MediaTypeHeaderValue("audio/mpeg");
             response.Content.Headers.ContentLength = arr.Length;
@@ -261,7 +351,7 @@ namespace Immanuel.Yl.Controllers
              * The first argument is the video to download.
              * The second argument is the path to save the video file.
              */
-            var videoDownloader = new VideoDownloader(video,pth);
+            var videoDownloader = new VideoDownloader(video, pth);
 
             // Register the ProgressChanged event and print the current progress
             videoDownloader.DownloadProgressChanged += (sender, args) => Console.WriteLine(args.ProgressPercentage);
