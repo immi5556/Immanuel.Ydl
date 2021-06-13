@@ -71,3 +71,7 @@ C:\Immi\Personal\MyProjects\you-dl\Immanuel.Ydl\Immanuel.Yt.Cmments.Feedback\Tes
 C:\Immi\Personal\MyProjects\you-dl\Immanuel.Ydl\Immanuel.Yt.Cmments.Feedback\Test.Scrape\bin\Debug\Microsoft.Owin.xml
 C:\Immi\Personal\MyProjects\you-dl\Immanuel.Ydl\Immanuel.Yt.Cmments.Feedback\Test.Scrape\bin\Debug\Microsoft.AspNet.SignalR.Core.xml
 C:\Immi\Personal\MyProjects\you-dl\Immanuel.Ydl\Immanuel.Yt.Cmments.Feedback\Test.Scrape\bin\Debug\Microsoft.Owin.Security.xml
+D:\Immi\Personal\git_repo\Immanuel.Ydl\Immanuel.Yt.Cmments.Feedback\Test.Scrape\obj\Debug\Test.Scrape.csprojAssemblyReference.cache
+D:\Immi\Personal\git_repo\Immanuel.Ydl\Immanuel.Yt.Cmments.Feedback\Test.Scrape\obj\Debug\Test.Scrape.csproj.CoreCompileInputs.cache
+D:\Immi\Personal\git_repo\Immanuel.Ydl\Immanuel.Yt.Cmments.Feedback\Test.Scrape\obj\Debug\Test.Scrape.exe
+D:\Immi\Personal\git_repo\Immanuel.Ydl\Immanuel.Yt.Cmments.Feedback\Test.Scrape\obj\Debug\Test.Scrape.pdb

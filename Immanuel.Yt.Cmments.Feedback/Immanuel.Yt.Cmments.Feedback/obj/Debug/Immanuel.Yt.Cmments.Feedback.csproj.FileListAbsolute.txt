@@ -85,3 +85,6 @@ C:\Immi\Personal\MyProjects\you-dl\Immanuel.Ydl\Immanuel.Yt.Cmments.Feedback\Imm
 C:\Immi\Personal\MyProjects\you-dl\Immanuel.Ydl\Immanuel.Yt.Cmments.Feedback\Immanuel.Yt.Cmments.Feedback\bin\Microsoft.Owin.xml
 C:\Immi\Personal\MyProjects\you-dl\Immanuel.Ydl\Immanuel.Yt.Cmments.Feedback\Immanuel.Yt.Cmments.Feedback\bin\Microsoft.Owin.Host.SystemWeb.xml
 C:\Immi\Personal\MyProjects\you-dl\Immanuel.Ydl\Immanuel.Yt.Cmments.Feedback\Immanuel.Yt.Cmments.Feedback\bin\Microsoft.Owin.Security.xml
+D:\Immi\Personal\git_repo\Immanuel.Ydl\Immanuel.Yt.Cmments.Feedback\Immanuel.Yt.Cmments.Feedback\obj\Debug\Immanuel.Yt.Cmments.Feedback.csprojAssemblyReference.cache
+D:\Immi\Personal\git_repo\Immanuel.Ydl\Immanuel.Yt.Cmments.Feedback\Immanuel.Yt.Cmments.Feedback\obj\Debug\Immanuel.Yt.Cmments.Feedback.csproj.CoreCompileInputs.cache
+D:\Immi\Personal\git_repo\Immanuel.Ydl\Immanuel.Yt.Cmments.Feedback\Immanuel.Yt.Cmments.Feedback\obj\Debug\Immanuel.Yt.Cmments.Feedback.pdb

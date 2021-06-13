@@ -4,6 +4,7 @@
     <UseIISExpress>true</UseIISExpress>
     <NameOfLastUsedPublishProfile>FolderProfile</NameOfLastUsedPublishProfile>
     <ProjectView>ShowAllFiles</ProjectView>
+    <LastActiveSolutionConfig>Debug|Any CPU</LastActiveSolutionConfig>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>

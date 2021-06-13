@@ -78,3 +78,6 @@ C:\Immi\Personal\MyProjects\you-dl\Immanuel.Ydl\Immanuel.Yl\Immanuel.Yl\bin\libv
 C:\Immi\Personal\MyProjects\you-dl\Immanuel.Ydl\Immanuel.Yl\Immanuel.Yl\bin\System.Web.Cors.dll
 C:\Immi\Personal\MyProjects\you-dl\Immanuel.Ydl\Immanuel.Yl\Immanuel.Yl\bin\System.Web.Http.Cors.dll
 C:\Immi\Personal\MyProjects\you-dl\Immanuel.Ydl\Immanuel.Yl\Immanuel.Yl\bin\System.Web.Http.Cors.xml
+D:\Immi\Personal\git_repo\Immanuel.Ydl\Immanuel.Yl\Immanuel.Yl\obj\Debug\Immanuel.Yl.csprojAssemblyReference.cache
+D:\Immi\Personal\git_repo\Immanuel.Ydl\Immanuel.Yl\Immanuel.Yl\obj\Debug\Immanuel.Yl.csproj.CoreCompileInputs.cache
+D:\Immi\Personal\git_repo\Immanuel.Ydl\Immanuel.Yl\Immanuel.Yl\obj\Debug\Immanuel.Yl.pdb

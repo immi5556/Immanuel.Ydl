@@ -12,3 +12,6 @@ C:\Immi\Personal\MyProjects\you-dl\Immanuel.Ydl\Immanuel.Yl\YoutubeExtractor\bin
 C:\Immi\Personal\MyProjects\you-dl\Immanuel.Ydl\Immanuel.Yl\YoutubeExtractor\obj\Debug\Full\YoutubeExtractor.csprojResolveAssemblyReference.cache
 C:\Immi\Personal\MyProjects\you-dl\Immanuel.Ydl\Immanuel.Yl\YoutubeExtractor\obj\Debug\Full\YoutubeExtractor.dll
 C:\Immi\Personal\MyProjects\you-dl\Immanuel.Ydl\Immanuel.Yl\YoutubeExtractor\obj\Debug\Full\YoutubeExtractor.pdb
+D:\Immi\Personal\git_repo\Immanuel.Ydl\Immanuel.Yl\YoutubeExtractor\obj\Debug\Full\YoutubeExtractor.csprojAssemblyReference.cache
+D:\Immi\Personal\git_repo\Immanuel.Ydl\Immanuel.Yl\YoutubeExtractor\obj\Debug\Full\YoutubeExtractor.csproj.CoreCompileInputs.cache
+D:\Immi\Personal\git_repo\Immanuel.Ydl\Immanuel.Yl\YoutubeExtractor\obj\Debug\Full\YoutubeExtractor.pdb
